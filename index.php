@@ -61,6 +61,9 @@ function clearText(field)
                     <div class="cs_article">
                       <div class="cs_article_inner">
                         <div class="img_frame"><a href="/sketchit.php?p=<?=rawurlencode($val['src_big']);?>"><img src = "<?=$val['src_big']?>"/></a></div>
+                        <p> You can now generate your sketches.
+                        </p>
+                        <a href="/sketchit.php?p=<?=rawurlencode($val['src_big']);?>">Click here to generate sketch of this pic.</a>
                       </div>
                     </div>
                 <? }  } ?>
