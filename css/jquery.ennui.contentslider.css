@@ -80,8 +80,8 @@
 
 .cs_article_inner  .img_frame {
 	float: left;
-	width: 380px;
-	height: 180px;
+	width: auto;
+	height: auto;
 	padding: 14px;
 	margin-right: 40px;
 	background: url(../images/templatemo_banner_img_frame.png) no-repeat;

@@ -60,7 +60,7 @@ function clearText(field)
                 <? if( $photo ) { $i = 0; foreach( $photo as $key => $val ) { if($i>10) break; $i++;  ?>
                     <div class="cs_article">
                       <div class="cs_article_inner">
-                        <a href="/sketchit.php?p=<?=rawurlencode($val['src_big']);?>"><img src = "<?=$val['src_big']?>"/></a>
+                        <div class="img_frame"><a href="/sketchit.php?p=<?=rawurlencode($val['src_big']);?>"><img src = "<?=$val['src_big']?>"/></a></div>
                       </div>
                     </div>
                 <? }  } ?>
