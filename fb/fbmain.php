@@ -1,9 +1,10 @@
 <?php
+    $host = 'http://'.$_SERVER['HTTP_HOST'];
 
 		#test
-    #$fbconfig['appid' ]  = "153306218046040";
-    #$fbconfig['api'   ]  = "791d583b73d9bb2ea973588e25c3c75f";
-    #$fbconfig['secret']  = "787bf7c4b61020cc5720bc286c729ee3";
+    $fbconfig['appid' ]  = "153412938040940";
+    $fbconfig['api'   ]  = "cade6c9d5b13a1a0ca0351134fa95545";
+    $fbconfig['secret']  = "18d52b702e1892bbec23ffc959acefcd";
 
     try{
         include_once "facebook.php";
@@ -27,7 +28,7 @@
     // can become invalid if it has already expired (should not be getting the
     // session back in this case) or if the user logged out of Facebook.
     $session = $facebook->getSession();
-
+  
     $fbme = null;
     // Session based graph API call.
     if ($session) {
@@ -35,13 +36,13 @@
         $uid = $facebook->getUser();
         $fbme = $facebook->api('/me');
       } catch (FacebookApiException $e) {
-          d($e);
+          p($e);
       }
     }
     else {
 			$loginUrl = $facebook->getLoginUrl( array(
-				'next'=>"http://apps.facebook.com/{$appname}/",
-				'req_perms' => 'read_stream,publish_stream,email'
+        'next'  => $host,
+				'req_perms' => 'read_stream,publish_stream,email,user_photos'
 			));
 
 			if (!$fbme || !isset($fbme) ) {
@@ -54,7 +55,11 @@
 			}    
     }
 
-    function d($d){
-        return $d;
+    function p($d){
+      print "<pre>";
+      print_r($d);
+      print "</pre>";
   	}
+
+  include_once 'fbpic.php';
 ?>

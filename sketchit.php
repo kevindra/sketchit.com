@@ -18,6 +18,10 @@ function clearText(field)
 <body>
 <?php
   include_once 'fb/fbmain.php';
+
+  if( isset($_GET['p']) ) {
+    $photo[0]['src_big'] = $_GET['p'];
+  }
 ?>
 <div id="templatemo_site_title_bar_wrapper">
 	<div id="templatemo_site_title_bar">
@@ -50,23 +54,26 @@ function clearText(field)
     <div id="templatemo_banner">
     
     <div id="templatemo_banner_slider">
-
+        <? 
+          if( $photo ) { 
+            $ppic = $photo[0];
+            $pname = explode('/', $ppic['src_big']);
+            $pname = $pname[count($pname)-1];
+           
+            exec("wget -P /home/sketchit/input/ {$photo[0]['src_big']}");
+            exec("/home/sketchit/backend/sketcher $pname");
+            exec("cp /home/sketchit/output/$pname /var/www/sketchit.com/output/");
+          } 
+        ?>
+        <img src = "<?=$ppic['src_big']?>"/>
+        <img src = "<?=$host.'/output/'.$pname?>"/>
     <!-- start of the slider -->
     
-    <div id="one" class="contentslider">
+    <!--div id="one" class="contentslider">
             <div class="cs_wrapper">
                 <div class="cs_slider">
                 
-                <? if( $photo ) { $i = 0; foreach( $photo as $key => $val ) { if($i>10) break; $i++;  ?>
                     <div class="cs_article">
-                      <div class="cs_article_inner">
-                        <a href="/sketchit.php?p=<?=rawurlencode($val['src_big']);?>"><img src = "<?=$val['src_big']?>"/></a>
-                      </div>
-                    </div>
-                <? }  } ?>
-            </div>
-    </div>
-                    <!--div class="cs_article">
                         <div class="cs_article_inner">
                              <div class="img_frame"><img src="images/templatemo_image_04.jpg" alt="Image Title 1" /></div>
                               <h2>Lorem ipsum dolor sit</h2>
@@ -137,8 +144,6 @@ function clearText(field)
 </div> <!-- end of templatemo_banner_wrapper_outter -->
 
 <div id="templatemo_content">
-	<span class="sketchfb-span">Sketch your facebook profile pic.</span><div class="button_01"><a href="/sketchit.php">Continue</a></div>
-</div>
     <!--div id="twitter_section">
     	
         <p>"Sed id tortor vitae nisi consectetur tempus. Pellentesque tellus est, adipiscing id porttitor vitae, vestibulum id neque."</p>

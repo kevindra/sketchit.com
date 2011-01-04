@@ -415,27 +415,22 @@ class Facebook
    * @param Array $params provide custom parameters
    * @return String the URL for the login flow
    */
-	 # $loginUrl = $facebook->getLoginUrl(
-   #  array('req_perms' => 'email,read_stream')
-		
-  public function getLoginUrl($params=array('email','read_stream','publish_stream','sms','offline_access')) {
-    //$currentUrl = $this->getCurrentUrl();
-    $login_url = $this->getUrl(
+  public function getLoginUrl($params=array()) {
+    $currentUrl = $this->getCurrentUrl();
+    return $this->getUrl(
       'www',
       'login.php',
       array_merge(array(
         'api_key'         => $this->getAppId(),
-        'cancel_url'      => "http://118.102.148.18/fsaki/test.php",
-        'display'         => 'default',
+        'cancel_url'      => $currentUrl,
+        'display'         => 'page',
         'fbconnect'       => 1,
-        'next'            => 'http://118.102.148.18/fsaki/test.php',
+        'next'            => $currentUrl,
         'return_session'  => 1,
         'session_version' => 3,
         'v'               => '1.0',
-        ), $params)
+      ), $params)
     );
-  
-    return $login_url;
   }
 
   /**
@@ -615,14 +610,6 @@ class Facebook
 
     curl_setopt_array($ch, $opts);
     $result = curl_exec($ch);
-
-    if (curl_errno($ch) == 60) { // CURLE_SSL_CACERT
-      self::errorLog('Invalid or no certificate authority found, using bundled information');
-      curl_setopt($ch, CURLOPT_CAINFO,
-                  dirname(__FILE__) . '/fb_ca_chain_bundle.crt');
-      $result = curl_exec($ch);
-    }
-
     if ($result === false) {
       $e = new FacebookApiException(array(
         'error_code' => curl_errno($ch),
