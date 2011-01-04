@@ -27,6 +27,6 @@ try{
   }
 }
 catch(Exception $o){
-  p($o);
+  //p($o);
 }
 ?>

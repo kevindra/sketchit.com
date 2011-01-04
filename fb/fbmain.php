@@ -36,7 +36,7 @@
         $uid = $facebook->getUser();
         $fbme = $facebook->api('/me');
       } catch (FacebookApiException $e) {
-          p($e);
+          //p($e);
       }
     }
     else {

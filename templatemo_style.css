@@ -8,7 +8,7 @@ body {
 	line-height: 1.5em;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 11px;
-	color: #333333;
+	color: #FFD48E;
     background: #ffffff;
 }
 		
@@ -18,6 +18,7 @@ a:active, a:hover { color: green; text-decoration: underline; }
 p { margin: 0px; padding: 0px; }
 
 img { margin: 0px; padding: 0px; border: none; }
+#imageContainer{margin:0px auto; padding;0px;}
 
 .cleaner { clear: both; width: 100%; height: 0px; font-size: 0px;  }
 
@@ -101,21 +102,24 @@ h3 {
 /* site title */
 
 #templatemo_site_title_bar_wrapper {
+  background-color:#FFF1DA;
+  border-style:solid;
+  border-bottom:thick solid #FFD48E;
+  border-top:thick solid #FFD48E;
 	width: 100%;
-	height: 100px;
 	margin: 0 auto;	
-	background:  url(images/templatemo_site_title_bg_wrapper.jpg) repeat-x top;
 }
 
 #templatemo_site_title_bar {
 	width: 940px;
-	height: 100px;
+	height: 77px;
 	margin: 0 auto;
 	padding: 0 20px;
-	background: url(images/templatemo_site_title_bg.jpg) no-repeat top;
+	background-color:#FFF1DA;
 }
 
 #site_title {
+  background-color:#FFD48E;
 	float: left;
 	width: 280px;
 	margin: 0px;
@@ -257,21 +261,21 @@ h3 {
 #templatemo_banner_wrapper_outter {
 	clear: both;
 	width: 100%;
-	height: 800px;
+	height: 360px;
 	margin: 0 auto;	
 	background: url(images/templatemo_banner_bg_wrapper_outter.jpg) top repeat-x;
 }
 
 #templatemo_banner_wrapper {
 	width: 100%;
-	height: 800px;
+	height: 360px;
 	margin: 0 auto;	
 	background: url(images/templatemo_banner_bg_wrapper.jpg) no-repeat center top;
 }
 
 #templatemo_banner {
 	width: 960px;
-	height: 800px;
+	height: 360px;
 	padding: 0 10px;
 	margin: 0 auto;
 	background: url(images/templatemo_banner_bg.jpg) no-repeat center top;
@@ -280,7 +284,7 @@ h3 {
 #templatemo_banner_slider {
 	clear: both;
 	width: 960px;
-	height: 800px;
+	height: 290px;
 	overflow: hidden;
 	margin-bottom: 10px;
 	padding: 70px 0 0 0;
@@ -290,12 +294,14 @@ h3 {
 /* end of banner */
 
 /* content */
-
+#templatemo_content_wrapper {
+  background-color:#403524;
+}
 #templatemo_content {
+  background-color:#403524; 
 	width: 940px;
 	margin: 0 auto;
 	padding: 30px 20px;
-	background: url(images/templatemo_content_bg_middle.png) repeat-y center;
 }
 
 #templatemo_content #twitter_section {
@@ -395,7 +401,7 @@ h3 {
 }
 .sketchfb-span {
 	font-size: 20px;
-	color: green;
+	color: #FFD48E;
 	font-weight: bold;
 	float:left;
 	padding-top: 3px;
