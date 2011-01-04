@@ -38,6 +38,21 @@
           d($e);
       }
     }
+    else {
+			$loginUrl = $facebook->getLoginUrl( array(
+				'next'=>"http://apps.facebook.com/{$appname}/",
+				'req_perms' => 'read_stream,publish_stream,email'
+			));
+
+			if (!$fbme || !isset($fbme) ) {
+				print("<html><head>");
+				print("<script type=\"text/javascript\">function redirect(){ top.location.href = \"");
+				print($loginUrl);
+				print("\"; }</script></head>");
+				print("<body onload=\"redirect();\">Please wait...</body></html>");
+				exit();
+			}    
+    }
 
     function d($d){
         return $d;
