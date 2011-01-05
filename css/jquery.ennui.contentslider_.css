@@ -80,11 +80,10 @@
 
 .cs_article_inner  .img_frame {
 	float: left;
-	width: 380px;
-	height: 180px;
+	width: auto;
+	height: auto;
 	padding: 14px;
 	margin-right: 40px;
-	background: url(../images/templatemo_banner_img_frame.png) no-repeat;
 	border: none;
 }
 
@@ -94,8 +93,8 @@
 }
 
 .cs_article a {
-	color: #333;
-	font-size: 16px;
+	color: #FFD48E;
+	font-size: 14px;
 	font-weight: bold;
 	text-decoration: none;
 }

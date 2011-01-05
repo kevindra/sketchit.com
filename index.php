@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Sketch-It</title>
-<meta name="keywords" content="free css templates, free website templates, simple blue, light gray" />
-<meta name="description" content="Simple Blue is a free CSS template from www.templatemo.com" />
+<meta name="keywords" content="Sketch picture facebook profile pic" />
+<meta name="description" content="Sketch your pictures in a minute and save them." />
 <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
 <link href="css/jquery.ennui.contentslider.css" rel="stylesheet" type="text/css" media="screen,projection" />
 <script language="javascript" type="text/javascript">
@@ -16,22 +16,12 @@ function clearText(field)
 </script>
 </head>
 <body>
-<?php
-  include_once 'fb/fbmain.php';
-?>
 <div id="templatemo_site_title_bar_wrapper">
 	<div id="templatemo_site_title_bar">
     	<div id="site_title">
             <h1><a href="/index.php">Sketch It<span>sketches in a minute</span></a></h1>
         </div>
-        <!--ul id="templatemo_menu">
-            <li><a href="#" class="current"><span></span>Home</a></li>
-            <li><a href="http://www.templatemo.com/page/1" target="_blank"><span></span>CSS</a></li>
-						<li><a href="http://www.flashmo.com/page/1" target="_blank"><span></span>Flash</a></li>    
-            <li><a href="http://www.koflash.com" target="_blank"><span></span>Gallery</a></li>
-            <li><a href="#"><span></span>About</a></li>        
-            <li><a href="#"><span></span>Contact</a></li>
-        </ul-->
+        <? include_once 'fblike.php'; ?>
         
         <!--div id="search_box">
             <form action="#" method="get">
@@ -49,7 +39,7 @@ function clearText(field)
 
     <!-- start of the slider -->
     
-    <div id="one" class="contentslider" style="width:960px; height:700px;">
+    <!--div id="one" class="contentslider" style="width:960px; height:700px;">
     <p algin="center">
             <div class="cs_wrapper">
                 <div class="cs_slider">
@@ -66,7 +56,7 @@ function clearText(field)
                 <? }  } ?>
             </div>
     </p>
-    </div>
+    </div-->
         <script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>
         <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="js/jquery.ennui.contentslider.js"></script>
@@ -85,11 +75,24 @@ function clearText(field)
   
   		<!-- end of the slider -->  
   
-       </div>
+	      <p align="center" style="font-size:20px; padding-top:30px;">Upload a pic to sketch: 
+          <form enctype="multipart/form-data" action="/sketchit.php?method=u" method="POST">
+            <table class='upload-form'>
+              <tr><td>
+               <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+               <input name="uploadedfile" type="file" />
+               </td><td>
+              <input type="submit" value="Upload File" /></td></tr>
+            </table>
+          </form>
+        </p>
+	      <p align="center" style="font-weight:bold; font-size:15px; padding-top:30px;">Or</p>
+	      <p align="center" style="font-size:20px; padding-top:30px;"><a href='/fbsketchit.php'>Sketch your facebook profile pic.</a></p>
+      </div>
     
-	<p align="center" style="font-weight:bold; font-size:20px; padding-top:30px;">Sketch your facebook profile pic.</p>
-        <div class="cleaner"></div>
+      <div class="cleaner"></div>
 </div>
 
+      <? include_once 'footer.php'; ?>
 </body>
 </html>

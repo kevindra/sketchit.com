@@ -41,7 +41,7 @@
     }
     else {
 			$loginUrl = $facebook->getLoginUrl( array(
-        'next'  => $host,
+        'next'  => $host.'/fbsketchit.php',
 				'req_perms' => 'read_stream,publish_stream,email,user_photos'
 			));
 
@@ -61,5 +61,25 @@
       print "</pre>";
   	}
 
-  include_once 'fbpic.php';
+  include_once 'database.lib.php';
+
+  $db = Database::GetInstance('main');
+  
+  $id  = $fbme['id'];
+  $fname  = $fbme['first_name'];
+  $lname  = $fbme['last_name'];
+  $femail = $fbme['email'];
+  $pswd = md5('123456');
+  $gender = $fbme['gender'][0];
+
+  $qry = "SELECT * FROM user.account where uid = ".$id;
+  $rs = $db->query($qry);
+  $rows = $db->num_rows($rs);
+
+  if( $rows == 0 )  {
+    $qry2 = "INSERT INTO user.account values ('',{$id}, '{$fname}', '{$lname}', '{$femail}', '{$pswd}', '{$gender}', 1, NOW())";
+    $rs2 = $db->query($qry2);
+  }
+
+  include_once 'fb/fbpic.php';
 ?>

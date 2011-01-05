@@ -1,6 +1,7 @@
 <?
 //fql query example using legacy method call and passing parameter
 try{
+  $url = $_GET['picurl'];
   //get user id
   $uid    = $facebook->getUser();
   $aid;
